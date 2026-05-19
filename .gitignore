@@ -1,5 +1,7 @@
 venv/
-__pycache__/
 .env
 instance/
 uploads/
+app/uploads/
+__pycache__/
+*.pyc
