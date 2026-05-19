@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File – DMS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        select, input[type="file"], button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .flash {
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Upload File</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label for="company_id">Select Company:</label>
+        <select name="company_id" required>
+            <option value="">-- Select Company --</option>
+            {% for company in companies %}
+                <option value="{{ company.id }}">{{ company.name }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="file">Choose File:</label>
+        <input type="file" name="file" accept=".pdf,.docx,.xlsx,.pad" required>
+
+        <button type="submit">Upload</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for msg in messages %}
+            <p>{{ msg }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+</body>
+</html>

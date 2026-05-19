@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BhavDOC – Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      width: 90%;
+      max-width: 480px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1.logo-text {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #d1d1ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulse 2s infinite ease-in-out;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #e0e0e0;
+      font-style: italic;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    a.button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #ff9966, #ff5e62);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    a.button:hover {
+      background: linear-gradient(90deg, #ff5e62, #ff9966);
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    .features {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #d0ffd0;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    ul.flash-messages {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    ul.flash-messages li {
+      color: #00ff99;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #cfcfcf;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.9; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for msg in messages %}
+            <li>{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <h1 class="logo-text">🚀 BhavDOC</h1>
+    <p><em>Smart. Secure. Scalable.</em></p>
+    <p>Designed & Developed by <b>Bhavesh Jha</b></p>
+
+    <div class="btn-group">
+      <a href="/login" class="button">🔐 Login</a>
+      <a href="/register_company" class="button">🏢 Register Company</a>
+      <a href="/upload" class="button">📤 Upload File</a>
+    </div>
+
+    <footer>
+      Version 1.0 • © {{ year }} BhavDOC<br>
+      <span style="font-size: 12px;">Need help? Contact support@bhavdoc.com</span>
+    </footer>
+  </div>
+
+</body>
+</html>

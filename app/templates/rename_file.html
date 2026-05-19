@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rename File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .form-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-box">
+        <h2>Rename File: {{ file.filename }}</h2>
+        <form method="POST">
+            <label for="new_name">New Filename:</label>
+            <input type="text" name="new_name" id="new_name" required>
+            <br>
+            <button type="submit">Rename</button>
+        </form>
+        <a href="{{ url_for('main.admin_dashboard') }}" class="back-link">← Back to Dashboard</a>
+    </div>
+
+</body>
+</html>
